@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./style.css">
+    <title>Game</title>
+</head>
+<body>
+
+    <div class="game_container">
+        <!-- Play section area -->
+        <div class="play_section">
+            <h1>Attack Falling Enemies</h1>
+            <button class="play">Play Game</button>
+        </div>
+
+        <!-- Game type selection area -->
+        <div class="design_type">
+            <h1>Select Enemy Type</h1>
+            <div class="design_container">
+                <div class="design">
+                    <img src="./svgs/cherrybomb-remix.svg" 
+                        alt="Cherry Bomb" 
+                        data-image="./svgs/cherrybomb-remix.svg"
+                    />
+                </div>
+                
+                <div class="design" id="orange">
+                    <img src="./svgs/melac.svg" 
+                        alt="Melac" 
+                        data-image="./svgs/melac.svg"
+                    />
+                </div>
+                
+                <div class="design">
+                    <img src="./svgs/santpanda.svg" 
+                        alt="Sant Panda" 
+                        data-image="./svgs/santpanda.svg"
+                    />
+                </div>
+            </div>
+        </div>
+
+        <!-- Game area -->
+        <div class="game_area">
+            <div class="info">
+                <div class="life">Life: 5</div>
+                <div class="score">Score: 10</div>
+            </div>
+  
+            <div class="dead_line"></div>
+            <div class="game_over">
+                <h2>Game Over</h2>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="reload" title="Reload Game">🔃</div>
+
+</body>
+<script src="./script.js"></script>
+</html>

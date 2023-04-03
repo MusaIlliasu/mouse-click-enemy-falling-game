@@ -1,0 +1,156 @@
+* {box-sizing: border-box;scroll-behavior: smooth;}
+body {
+    width: 100%;
+    height: 100vh;
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    overflow: hidden;
+}
+::-webkit-scrollbar {
+    display: none;
+}
+
+.reload {
+    position: fixed;
+    bottom: 40px;
+    right: 40px;
+    font-size: 40px;
+    max-width: 40px;
+    max-height: 40px;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    border-radius: 8px;
+    opacity: 0.4;
+    transition: opacity 0.2s ease;
+    cursor: pointer;
+}
+.reload:hover {opacity: 1;}
+
+.game_container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    transform: translateY(0vh);
+    transition: transform 0.8s ease;
+}
+
+.play_section, .design_type, .game_area {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    background-color: dodgerblue;
+    color: white;
+}
+
+.play_section, .design_type {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+h1 {
+    margin: 0 0 20px;
+    font-size: 2.6rem;
+    text-align: center;
+    text-transform: uppercase;
+}
+/* Play Section */
+.play_section button {
+    border: 0;
+    border-radius: 4px;
+    padding: 15px 25px;
+    font-size: 1.2rem;
+    background: linear-gradient(aqua 0%, aquamarine 100%);
+    color: slateblue;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+}
+.play_section button:active, .design:active {
+    transform: scale(0.9);
+}
+
+/* Game Design Selection Area */
+.design_container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.design_container .design {
+    width: 80px;
+    height: 80px;
+    border-radius: 10px;
+    margin: 0 10px;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+    overflow: hidden;
+}
+.design img {
+    width: 100%;height: 100%;object-fit: contain;
+    color: white;
+}
+
+/* Game Area Section */
+.game_area .info {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    font-size: 1.2rem;
+    background-color: rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(4px);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    z-index: 2;
+}
+
+.game_area .enemy {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 80px;
+    height: 80px;
+    transform: translateY(0);
+    animation: enemy_drop 8s linear forwards;
+    cursor: pointer;
+    overflow: hidden;
+    z-index: 1;
+}
+.game_area .enemy img {
+    width: 100%;height: 100%;object-fit: contain;
+}
+
+/* Dead zone */
+.dead_line {
+    position: absolute;
+    bottom: 60px;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background-color: white;
+}
+
+.game_over {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    text-align: center;
+    color: red;
+    font-size: 2rem;
+    transform: translate(-500%, -50%);
+    transition: transform 0.4s ease;
+    z-index: 20;
+}
+.game_over.active {
+    transform: translate(0%, -50%);
+}
+
+@keyframes enemy_drop {
+    0% {transform: translateY(0%);}
+    100% {transform: translateY(650%);}
+}
